@@ -5,7 +5,7 @@ locals {
 module "vpc" {
   source = "../../modules/vpc"
 
-  name = "ha-interview-08"
+  name = "local.cluster_name"
   env  = "demo"
   cluster_name = local.cluster_name
 }
