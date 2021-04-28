@@ -1,0 +1,6 @@
+name: default
+depends:
+  - name: inspec-aws
+    url: https://github.com/inspec/inspec-aws/archive/v1.26.1.tar.gz
+supports:
+  - platform: aws
