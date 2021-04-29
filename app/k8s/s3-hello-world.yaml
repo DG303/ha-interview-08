@@ -126,19 +126,19 @@ spec:
       - name: s3-hello-world
         configMap:
           name: s3-hello-world
-      initContainers:
-      - command:
-        - aws
-        - s3
-        - sync
-        - /tmp/
-        - s3://pwbsbucket/
-        image: amazon/aws-cli
-        imagePullPolicy: Always
-        name: init-s3-hello-world
-        volumeMounts:
-        - mountPath: /tmp/index.html
-          name: s3-hello-world
+      #initContainers:
+      #- command:
+      #  - aws
+      #  - s3
+      #  - sync
+      #  - /tmp/
+      #  - s3://pwbsbucket/
+      #  image: amazon/aws-cli
+      #  imagePullPolicy: Always
+      #  name: init-s3-hello-world
+      #  volumeMounts:
+      #  - mountPath: /tmp/index.html
+      #    name: s3-hello-world
       containers:
       - image: nginxdemos/hello
         imagePullPolicy: Always
@@ -173,7 +173,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx-ben"
 spec:
   rules:
-  - host: ad60ee60a1bb44f6faf40fecba9baaa5-1486879597.us-east-1.elb.amazonaws.com
+  - host: 
     http:
       paths:
       - path: /

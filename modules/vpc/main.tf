@@ -25,7 +25,7 @@ module "vpc" {
     Terraform   = "true"
     Name        = var.name
     Environment = var.env
-    "kubernetes.io/cluster/var.cluster_name" = "shared"
+    "kubernetes.io/cluster/${var.name}" = "shared"
   }
 }
 

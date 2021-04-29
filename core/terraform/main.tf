@@ -5,7 +5,7 @@ locals {
 module "vpc" {
   source = "../../modules/vpc"
 
-  name = "local.cluster_name"
+  name = local.cluster_name
   env  = "demo"
   cluster_name = local.cluster_name
 }

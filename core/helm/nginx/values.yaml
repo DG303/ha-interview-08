@@ -369,7 +369,7 @@ controller:
     externalIPs: []
 
     # loadBalancerIP: ""
-    loadBalancerSourceRanges: []
+    loadBalancerSourceRanges: ["0.0.0.0/0"]
 
     enableHttp: true
     enableHttps: true
