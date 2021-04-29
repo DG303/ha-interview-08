@@ -126,26 +126,26 @@ spec:
       - name: s3-hello-world
         configMap:
           name: s3-hello-world
-      #initContainers:
-      #- command:
-      #  - aws
-      #  - s3
-      #  - sync
-      #  - /tmp/
-      #  - s3://pwbsbucket/
-      #  image: amazon/aws-cli
-      #  imagePullPolicy: Always
-      #  name: init-s3-hello-world
-      #  volumeMounts:
-      #  - mountPath: /tmp/index.html
-      #    name: s3-hello-world
+      initContainers:
+      - command:
+        - aws
+        - s3
+        - sync
+        - /tmp/
+        - s3://ha-interview-08/
+        image: amazon/aws-cli
+        imagePullPolicy: Always
+        name: init-s3-hello-world
+        volumeMounts:
+        - mountPath: /tmp
+          name: s3-hello-world
       containers:
       - image: nginxdemos/hello
         imagePullPolicy: Always
         name: s3-webserver
         volumeMounts:
         - name: s3-hello-world
-          mountPath: "/usr/share/nginx/html/index.html"
+          mountPath: /usr/share/nginx/html
           readOnly: true
         ports:
         - containerPort: 80
